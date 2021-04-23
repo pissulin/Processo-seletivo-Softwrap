@@ -1,9 +1,13 @@
 import React from 'react'
 import {FiUsers} from 'react-icons/fi';
-import {Container, Header, Logo, HeaderForm, MenuAcoes, Botao} from './App_style';
+
+import Input from './components/Input'
+
+import {Container, Header, Logo, HeaderForm, ContainerForm, ContainerLista} from './App_style';
 
 
 function App() {
+
   return (
     <Container>
       <Header>
@@ -14,13 +18,16 @@ function App() {
           fontFamily:'sans-serif'
           }}> Clientes </span></Logo>
       </Header>
-      <HeaderForm>
-        <FiUsers size={20}/><h2 style={{marginLeft: 10, fontSize:20}}>Listar Clientes</h2>
-      </HeaderForm>
-      <MenuAcoes>
-        <Botao width="100px" background="green" color="white">CADASTRAR</Botao>
-        <Botao width="100px" background="black" color="white">MAIS AÇÕES</Botao>  
-      </MenuAcoes>
+      <div style={{padding:30}}>
+        <HeaderForm>
+          <FiUsers size={20}/><h2 style={{marginLeft: 10, fontSize:20}}>Listar Clientes</h2>
+        </HeaderForm>
+        <ContainerForm>
+          <Input/>
+        </ContainerForm>
+        <ContainerLista></ContainerLista>
+        
+      </div>
     </Container>
   );
 }

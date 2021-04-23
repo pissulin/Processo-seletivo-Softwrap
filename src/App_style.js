@@ -25,17 +25,8 @@ export const HeaderForm = styled.div`
     width: 100%;
     height: 60px;
     display: flex;
-    padding: 0 30px;
     align-items: center;
     border-bottom: 1px solid black;
-`;
-
-export const MenuAcoes = styled.div`
-    width: 100%;
-    height: 60px;
-    display: flex;
-    padding: 0 30px;
-    align-items: center;
 `;
 
 export const Botao = styled.button`
@@ -48,4 +39,17 @@ export const Botao = styled.button`
     color: ${props => props.color || 'black'};
     cursor: pointer;
     outline: 0px;
+`;
+
+export const ContainerForm = styled.div`
+    max-width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+export const ContainerLista = styled.div`
+    width: 100%;
+    height: 500px;
+    margin: 10px auto;
+    border: 1px solid black;
 `;
