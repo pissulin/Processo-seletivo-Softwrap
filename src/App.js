@@ -1,7 +1,8 @@
 import React from 'react'
 import {FiUsers} from 'react-icons/fi';
+import Input from './components/Input';
+import Tabela from './components/Table';
 
-import Input from './components/Input'
 
 import {Container, Header, Logo, HeaderForm, ContainerForm, ContainerLista} from './App_style';
 
@@ -25,7 +26,9 @@ function App() {
         <ContainerForm>
           <Input/>
         </ContainerForm>
-        <ContainerLista></ContainerLista>
+        <ContainerLista>
+          <Tabela />
+        </ContainerLista>
         
       </div>
     </Container>

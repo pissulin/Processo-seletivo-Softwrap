@@ -1,14 +1,31 @@
 import React, {useState} from 'react';
+import firebase from 'firebase';
 import {Input} from './Input-style'
 
 
+let idInicial = 1
+
 const initialFormState = {
+    id: idInicial,
     nome: "",
     idade: "",
     cpf: "",
     estadoCivil: "",
     cidade: "",
     estado: ""
+}
+
+function GravarDados(id, nome, idade, cpf, estadoCivil, cidade, estado){
+    firebase.database().ref('clientes/' + id).set({
+        id: id,
+        nome: nome,
+        idade: idade,
+        CPF: cpf,
+        estadoCivil: estadoCivil,
+        cidade: cidade,
+        estado: estado
+    })
+    idInicial++
 }
 
 const UserForm = () => {
@@ -78,6 +95,16 @@ const UserForm = () => {
                             cursor:"pointer"
                         }
                     } 
+                    onClick={
+                        ()=> GravarDados(
+                            dados.id, 
+                            dados.nome, 
+                            dados.idade, 
+                            dados.cpf,
+                            dados.estadoCivil,
+                            dados.cidade,
+                            dados.estado )
+                        }
                 />
                 <Input 
                     type="submit"

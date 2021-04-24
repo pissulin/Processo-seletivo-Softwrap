@@ -52,4 +52,6 @@ export const ContainerLista = styled.div`
     height: 500px;
     margin: 10px auto;
     border: 1px solid black;
+    overflow-y: scroll;
+    -webkit-scrollbar;
 `;
