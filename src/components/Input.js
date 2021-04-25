@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import firebase from 'firebase';
+import fireDB from '../database/firebase';
 import {Input} from './Input-style'
+import nextId from "react-id-generator";
 
 
-let idInicial = 1
 
 const initialFormState = {
-    id: idInicial,
+    id: "",
     nome: "",
     idade: "",
     cpf: "",
@@ -15,8 +15,10 @@ const initialFormState = {
     estado: ""
 }
 
-function GravarDados(id, nome, idade, cpf, estadoCivil, cidade, estado){
-    firebase.database().ref('clientes/' + id).set({
+function gravarDados(nome, idade, cpf, estadoCivil, cidade, estado){
+    let id = nextId(" ")
+    console.log(id)
+    fireDB.child('clientes/').push({
         id: id,
         nome: nome,
         idade: idade,
@@ -24,8 +26,13 @@ function GravarDados(id, nome, idade, cpf, estadoCivil, cidade, estado){
         estadoCivil: estadoCivil,
         cidade: cidade,
         estado: estado
+    },
+    error => {
+        if(error){
+            console.log(error)
+        }
     })
-    idInicial++
+    
 }
 
 const UserForm = () => {
@@ -37,7 +44,7 @@ const UserForm = () => {
 
     return (
         <>
-            <form>
+            <form autoComplete="off" onSubmit={gravarDados}>
                 <Input 
                     name="nome"
                     value={dados.nome}
@@ -96,8 +103,8 @@ const UserForm = () => {
                         }
                     } 
                     onClick={
-                        ()=> GravarDados(
-                            dados.id, 
+
+                        ()=> gravarDados(
                             dados.nome, 
                             dados.idade, 
                             dados.cpf,

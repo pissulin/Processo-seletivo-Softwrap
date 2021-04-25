@@ -1,20 +1,25 @@
 import React, {useState, useEffect} from 'react';
-import api from '../server/api'
+import fireDB from '../database/firebase'
 
 import {Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FiEdit, FiXCircle} from "react-icons/fi"
 
 function Tabela(){
-    const [clientes, setClientes] = useState([])
+    const [clientes, setClientes] = useState({})
     useEffect(()=>{
-       async function loadClientes(){
-            const response = await api.get("/clientes.json")
-            setClientes(response.data)
-        }
-        loadClientes()
+        fireDB.child("clientes").on("value", dbPhoto =>{
+            if(dbPhoto.val() != null){
+                setClientes({
+                    ...dbPhoto.val()
+                })
+            }
+        })
+
+
     }, [])
     
+    console.log(clientes)
     return(
     <Table striped bordered hover responsive >
         <thead>
@@ -30,26 +35,24 @@ function Tabela(){
                 </tr>
                 </thead>
         <tbody>
-            {clientes.map((cliente)=> {
-                    if(cliente != null){
-                        return(
-                            <tr key={cliente.id}>
-                                <td>{cliente.id}</td>
-                                <td>{cliente.nome}</td>
-                                <td>{cliente.idade}</td>
-                                <td>{cliente.estadoCivil}</td>
-                                <td>{cliente.CPF}</td>
-                                <td>{cliente.cidade}</td>
-                                <td>{cliente.estado}</td>
+            {
+                Object.keys(clientes).map(id => {
+                    return(
+                        <tr key={id}>
+                                <td>{clientes[id].id}</td>
+                                <td>{clientes[id].nome}</td>
+                                <td>{clientes[id].idade}</td>
+                                <td>{clientes[id].estadoCivil}</td>
+                                <td>{clientes[id].CPF}</td>
+                                <td>{clientes[id].cidade}</td>
+                                <td>{clientes[id].estado}</td>
                                 <td>
                                     <FiEdit color="green" size={22} style={{cursor:"pointer", marginRight:10}}/>
                                     <FiXCircle color="red" size={22} style={{cursor:"pointer"}} /></td>
                             </tr>
-                        )
-
-                    }
-                
-            })}        
+                    )
+                })
+            }
         </tbody>
     </Table>
     )
