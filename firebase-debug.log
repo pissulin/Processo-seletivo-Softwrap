@@ -1,0 +1,25 @@
+[debug] [2021-04-25T16:28:18.280Z] ----------------------------------------------------------------------
+[debug] [2021-04-25T16:28:18.283Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2021-04-25T16:28:18.284Z] CLI Version:   9.10.0
+[debug] [2021-04-25T16:28:18.284Z] Platform:      win32
+[debug] [2021-04-25T16:28:18.284Z] Node Version:  v15.1.0
+[debug] [2021-04-25T16:28:18.286Z] Time:          Sun Apr 25 2021 13:28:18 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2021-04-25T16:28:18.286Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-04-25T16:28:18.296Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-25T16:28:18.297Z] > authorizing via signed-in user (pissulin.ads@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\pissu\Desktop\workspace\Testes de emprego\Softwrap-teste\cadastroclientes
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
