@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import fireDB from '../database/firebase';
-import {Input} from './Input-style'
 import nextId from "react-id-generator";
+import InputMask from "react-input-mask";
+
+import {Input} from './Input-style'
 
 
 
@@ -15,7 +17,20 @@ const initialFormState = {
     estado: ""
 }
 
+const styleInput = {
+    width: "160px",
+    height:"30px",
+    border:"1px solid black",
+    margin: "10px  30px 10px 0",
+    paddingLeft: "10px",
+    borderRadius: "4px"
+}
+
 function gravarDados(nome, idade, cpf, estadoCivil, cidade, estado){
+    if(nome == "" || idade == "" || cpf =="" || estadoCivil =="" || cidade =="" || estado ==""){
+        alert("Favor preencher todos os campos!")
+        return
+    }
     let id = nextId(" ")
     console.log(id)
     fireDB.child('clientes/').push({
@@ -45,42 +60,61 @@ const UserForm = () => {
     return (
         <>
             <form autoComplete="off" onSubmit={gravarDados}>
-                <Input 
+                <Input
+                    required
+                    type="text"
                     name="nome"
                     value={dados.nome}
                     onChange={ e => setInput({nome: e.target.value})}
                     label="Nome"
                     placeholder="Nome"
+                    
                 />
-                <Input 
+                <InputMask
+                    style={styleInput}
+                    required
+                    mask="999"
+                    maskChar=""
                     name="idade"
                     value={dados.idade}
                     onChange={ e => setInput({idade: e.target.value})}
                     label="Idade"
                     placeholder="Idade"
                 />
-                <Input 
+                <InputMask 
+                    style={styleInput}
+                    required
+                    mask="999.999.999-99"
+                    maskChar= ''
                     name="cpf"
                     value={dados.cpf}
                     onChange={ e => setInput({cpf: e.target.value})}
                     label="CPF"
                     placeholder="CPF"
                 />
-                <Input 
+                <InputMask
+                    style={styleInput} 
+                    required
+                    type="text"
                     name="estadoCivil"
                     value={dados.estadoCivil}
                     onChange={ e => setInput({estadoCivil: e.target.value})}
                     label="EstadoCivil"
                     placeholder="Estado Civil"
                 />
-                <Input 
+                <InputMask
+                    style={styleInput}
+                    required 
+                    type="text"
                     name="cidade"
                     value={dados.cidade}
                     onChange={ e => setInput({cidade: e.target.value})}
                     label="Cidade"
                     placeholder="Cidade"
                 />
-                <Input 
+                <Input
+                    required={true} 
+                    type="text"
                     name="estado"
                     value={dados.estado}
                     onChange={ e => setInput({estado: e.target.value})}
@@ -88,12 +122,14 @@ const UserForm = () => {
                     placeholder="Estado"
                 />
             </form>
-                <Input 
+                <InputMask 
                     type="submit" 
                     value="SALVAR"
+                    paddingLeft={0}
                     style={
-                        {
-                            padding: 0, 
+                        {   
+                            ...styleInput,
+                            paddingLeft:0, 
                             fontWeight: 900, 
                             backgroundColor: "green", 
                             color:"white", 
@@ -113,12 +149,12 @@ const UserForm = () => {
                             dados.estado )
                         }
                 />
-                <Input 
+                <InputMask 
                     type="submit"
                     value="LIMPAR"
                     style={
-                        {
-                            padding: 0, 
+                        {   ...styleInput,
+                            paddingLeft:0, 
                             fontWeight: 900, 
                             backgroundColor: "red", 
                             color:"white", 
