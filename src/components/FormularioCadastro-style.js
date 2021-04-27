@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Form = styled.form`
+    width: 100%;
+    padding: 10px;
+    background-color: #ececec;
+`;
+
 export const Input = styled.input`
     width: 160px;
     height: 30px;

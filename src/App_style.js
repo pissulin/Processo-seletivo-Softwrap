@@ -26,7 +26,6 @@ export const HeaderForm = styled.div`
     height: 60px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid black;
 `;
 
 export const Botao = styled.button`
@@ -49,7 +48,7 @@ export const ContainerForm = styled.div`
 
 export const ContainerLista = styled.div`
     width: 100%;
-    height: 500px;
+    height: 690px;
     margin: 10px auto;
     border: 1px solid black;
     overflow-y: scroll;

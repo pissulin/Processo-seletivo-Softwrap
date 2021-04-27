@@ -19,17 +19,13 @@ function App() {
           fontFamily:'sans-serif'
           }}> Clientes </span></Logo>
       </Header>
-      <div style={{padding:30}}>
+      <div style={{paddingTop:10, paddingLeft:30, paddingRight:30}}>
         <HeaderForm>
           <FiUsers size={20}/><h2 style={{marginLeft: 10, fontSize:20}}>Listar Clientes</h2>
         </HeaderForm>
-        <ContainerForm>
-          <Input/>
-        </ContainerForm>
         <ContainerLista>
           <Tabela />
-        </ContainerLista>
-        
+        </ContainerLista> 
       </div>
     </Container>
   );

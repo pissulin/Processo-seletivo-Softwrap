@@ -1,26 +1,44 @@
 import React, {useState, useEffect} from 'react';
 import fireDB from '../database/firebase'
-
+import FormularioCadastro from './FormularioCadastro';
 import {Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FiEdit, FiXCircle} from "react-icons/fi"
 
+function deletar(id){
+    if(window.confirm(`Deseja realmente deletar esse cadastro!`)){
+        fireDB.child(`clientes/${id}`).remove(
+            err => {
+                if(err){
+                    console.log(err)
+                }
+            }
+        )
+        
+    }
+}
+
 function Tabela(){
     const [clientes, setClientes] = useState({})
+    const [idAtual, setIdAtual] = useState('')
+
     useEffect(()=>{
         fireDB.child("clientes").on("value", dbPhoto =>{
             if(dbPhoto.val() != null){
                 setClientes({
                     ...dbPhoto.val()
                 })
+            } else {
+                setClientes({})
             }
         })
 
 
     }, [])
-    
-    console.log(clientes)
+
     return(
+        <>
+    <FormularioCadastro {...({idAtual, clientes})} />
     <Table striped bordered hover responsive >
         <thead>
                 <tr>
@@ -47,14 +65,15 @@ function Tabela(){
                                 <td>{clientes[id].cidade}</td>
                                 <td>{clientes[id].estado}</td>
                                 <td>
-                                    <FiEdit color="green" size={22} style={{cursor:"pointer", marginRight:10}}/>
-                                    <FiXCircle color="red" size={22} style={{cursor:"pointer"}} /></td>
+                                    <button onClick={()=> setIdAtual(id)}><FiEdit color="green" size={22} style={{cursor:"pointer", marginRight:10}}/></button>
+                                    <button onClick={()=> deletar(id)}><FiXCircle color="red" size={22} style={{cursor:"pointer"}} /></button></td>
                             </tr>
                     )
                 })
             }
         </tbody>
     </Table>
+    </>
     )
 }
 
