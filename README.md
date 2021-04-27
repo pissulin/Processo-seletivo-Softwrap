@@ -14,13 +14,12 @@ Abrir [http://localhost:3000](http://localhost:3000) para visualizar no browser.
 ## Resumo do processo de desenvolvimento do teste em questão
 
  Tecnologias usadas:
-  -ReactJS,
-  -firebase,
-  -Styled-components,
-  -Eslintrc
+  - ReactJS,
+  - firebase,
+  - Styled-components,
+  - Eslintrc
                      
 ## Deploy 
-  Firebase-hosting
-  
-Aplicação-Demo [https://cadastro-clientes-4594c.web.app/](https://cadastro-clientes-4594c.web.app/) 
+ Hospedado no Firebase-hosting
+ Aplicação-Demo [https://cadastro-clientes-4594c.web.app/](https://cadastro-clientes-4594c.web.app/) 
   
