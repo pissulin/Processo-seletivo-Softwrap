@@ -10,4 +10,4 @@
 
 Abrir [http://localhost:3000](http://localhost:3000) para visualizar no browser.
 
-###
+### Resumo do processo de desenvolvimento do teste em questão
