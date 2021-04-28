@@ -25,6 +25,11 @@ Abrir [http://localhost:3000](http://localhost:3000) para visualizar no browser.
   Seguindo a recomendação do documento de teste em questão, eu usei o eslintrc para deixar o codigo com mais consistencia e assim evitar algum bug futuro. <br>
   Por último aproveitando o firebase e tudo o que ele nos oferece, usei o hosting para por em produção a aplicação e assim deixar disponivel um demo para apresentação.
   
+  ### Estruturas de pastas:
+    src -- <br>
+         |<br> 
+         components => Aqui deixei o componente 
+  
                      
 ## Deploy 
  Hospedado no Firebase-hosting
