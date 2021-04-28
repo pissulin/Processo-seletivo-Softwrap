@@ -26,8 +26,8 @@ Abrir [http://localhost:3000](http://localhost:3000) para visualizar no browser.
   Por último aproveitando o firebase e tudo o que ele nos oferece, usei o hosting para por em produção a aplicação e assim deixar disponivel um demo para apresentação.
   
   ### Estruturas de pastas:
-    src -- <br>
-         |<br> 
+    src -- 
+         | 
          components => Aqui deixei o componente 
   
                      
