@@ -1,10 +1,9 @@
 import React from 'react'
 import {FiUsers} from 'react-icons/fi';
-import Input from './components/Input';
 import Tabela from './components/Table';
 
 
-import {Container, Header, Logo, HeaderForm, ContainerForm, ContainerLista} from './App_style';
+import {Container, Header, Logo, HeaderForm, ContainerLista} from './App_style';
 
 
 function App() {

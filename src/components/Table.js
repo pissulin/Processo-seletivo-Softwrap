@@ -21,6 +21,7 @@ function deletar(id){
 function Tabela(){
     const [clientes, setClientes] = useState({})
     const [idAtual, setIdAtual] = useState('')
+    const [atualizou, setAtualizou] = useState(false)
 
     useEffect(()=>{
         fireDB.child("clientes").on("value", dbPhoto =>{
@@ -34,7 +35,7 @@ function Tabela(){
         })
 
 
-    }, [])
+    }, [atualizou])
 
     return(
         <>
@@ -65,7 +66,7 @@ function Tabela(){
                                 <td>{clientes[id].cidade}</td>
                                 <td>{clientes[id].estado}</td>
                                 <td>
-                                    <button onClick={()=> setIdAtual(id)}><FiEdit color="green" size={22} style={{cursor:"pointer", marginRight:10}}/></button>
+                                    <button onClick={()=> (setIdAtual(id), setAtualizou(!atualizou))}><FiEdit color="green" size={22} style={{cursor:"pointer", marginRight:10}}/></button>
                                     <button onClick={()=> deletar(id)}><FiXCircle color="red" size={22} style={{cursor:"pointer"}} /></button></td>
                             </tr>
                     )

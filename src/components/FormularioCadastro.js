@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import fireDB from '../database/firebase';
 import nextId from "react-id-generator";
 import InputMask from "react-input-mask";
-
+import PropTypes from 'prop-types'
 import {Input, Form} from './FormularioCadastro-style'
 
 
@@ -28,11 +28,16 @@ const styleInput = {
 
 
 const FormularioCadastro = (props)=>{
+
+    FormularioCadastro.propTypes = {
+        idAtual: PropTypes.string.isRequired,
+        clientes: PropTypes.string.isRequired,
+    };
     
     const [dados, setDados] = useState(initialFormState);
 
     const setInput = (newValue) => {
-        setDados(form => ({...dados, ...newValue}))
+        setDados(() => ({...dados, ...newValue}))
     }
     
     function gravarDados(nome, idade, cpf, estadoCivil, cidade, estado){
@@ -77,8 +82,6 @@ const FormularioCadastro = (props)=>{
         }
         
     }
-
-
 
     useEffect(()=>{
        if(props.idAtual ===""|| dados.id !==""){
