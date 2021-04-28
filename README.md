@@ -27,10 +27,20 @@ Abrir [http://localhost:3000](http://localhost:3000) para visualizar no browser.
   
   ### Estruturas de pastas:
     src -- 
-         | 
-         components => Aqui deixei o componente 
-  
-                     
+         |
+         |
+         components --
+         |           |
+         |           FormularioCadastro.js é o componente que tem toda logica de inserir, atualizar e deletar os cadastros.
+         |           | 
+         |           Table.js é o componente onde tem a logica de leitura das informações no banco do firebase e onde é mostrados as informações em forma de lista    
+         |
+         database => firebase.js é onde tem as configurações de integração do firebase.
+         |
+         |
+         App.js -- Aqui é onde renderizo todos os componentes já estilizados e faço mais algumas estilizações para quê fique claro as informações mostradas em tela ao usuario
+                   
+                   
 ## Deploy 
  Hospedado no Firebase-hosting
  Aplicação-Demo [https://cadastro-clientes-4594c.web.app/](https://cadastro-clientes-4594c.web.app/) 
